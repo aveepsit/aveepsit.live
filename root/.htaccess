@@ -1,0 +1,6 @@
+# Turn Rewrite Engine On
+RewriteEngine On
+
+# RewriteRule for index.html
+RewriteRule ^index\.html$ - [NC,L]
+RewriteRule . /index.html [L]
