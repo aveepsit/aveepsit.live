@@ -8,24 +8,4 @@ Hello and welcome to the GitHub repo of Aveepsit's website. This Repository cons
 
 
 
-It's an entirely static website, no server-side code/scripting at all.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+At the moment, it's an entirely static website, no server-side code/scripting at all. 
