@@ -1,2 +1,10 @@
-# Icon Files
-/icon/
+# Root Folder
+/*
+
+# Whitelist required files
+!.gitignore
+!README.md
+
+# Whitelist root & screenshot folder
+!/root/
+!/screenshot/
