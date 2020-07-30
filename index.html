@@ -47,12 +47,16 @@
                   <div class="d-none d-lg-block">
                     <a
                       href="https://www.linkedin.com/in/aveepsit"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       class="text-white px-3"
                     >
                       <i class="fab fa-linkedin fa-3x"></i>
                     </a>
                     <a
                       href="https://www.github.com/aveepsit"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       class="text-white px-3"
                     >
                       <i class="fab fa-github fa-3x"></i>
@@ -144,7 +148,7 @@
               >
               <div class="progress mt-1 mb-4 ml-md-4 ml-2">
                 <div
-                  class="progress-bar bg-success text-left pl-3"
+                  class="progress-bar bg-primary progress-bar-striped progress-bar-animated text-left pl-3"
                   style="width: 100%;"
                 >
                   &starf; &starf; &starf; &starf; &starf;
@@ -158,7 +162,7 @@
               >
               <div class="progress mt-1 mb-4 ml-md-4 ml-2">
                 <div
-                  class="progress-bar bg-success text-left pl-3"
+                  class="progress-bar bg-primary progress-bar-striped progress-bar-animated text-left pl-3"
                   style="width: 100%;"
                 >
                   &starf; &starf; &starf; &starf; &starf;
@@ -173,7 +177,7 @@
               >
               <div class="progress mt-1 mb-4 ml-md-4 ml-2">
                 <div
-                  class="progress-bar bg-success text-left pl-3"
+                  class="progress-bar bg-primary progress-bar-striped progress-bar-animated text-left pl-3"
                   style="width: 100%;"
                 >
                   &starf; &starf; &starf; &starf; &starf;
@@ -188,7 +192,7 @@
               >
               <div class="progress mt-1 mb-4 ml-md-4 ml-2">
                 <div
-                  class="progress-bar bg-success text-left pl-3"
+                  class="progress-bar bg-primary progress-bar-striped progress-bar-animated text-left pl-3"
                   style="width: 80%;"
                 >
                   &starf; &starf; &starf; &starf;
@@ -202,7 +206,7 @@
               >
               <div class="progress mt-1 mb-4 ml-md-4 ml-2">
                 <div
-                  class="progress-bar bg-success text-left pl-3"
+                  class="progress-bar bg-primary progress-bar-striped progress-bar-animated text-left pl-3"
                   style="width: 75%;"
                 >
                   &starf; &starf; &starf; &starf;
@@ -217,15 +221,20 @@
       <footer id="main-footer" class="p-5 bg-dark text-white">
         <div class="row">
           <div class="col-md-6">
-            <a href="downloads/resume.pdf" class="btn btn-outline-light px-2">
+            <a
+              href="downloads/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline-light px-2"
+            >
               <i class="fas fa-cloud pr-2"></i>Download Resume
             </a>
           </div>
         </div>
       </footer>
-
       <!-- ---------- Main Container End ------------- -->
     </div>
+
     <!-- JS JQUERY -->
     <!-- <script
       src="http://code.jquery.com/jquery-3.5.1.min.js"
@@ -250,8 +259,10 @@
     ></script> -->
     <script src="js/bootstrap-min.js"></script>
     <script>
-      // Get the current year for the copyright
-      $('#year').text(new Date().getFullYear());
+      // sub-secition auto-close on click
+      $(".port-item").click(function () {
+        $(".collapse.show").collapse("hide");
+      });
     </script>
   </body>
 </html>
