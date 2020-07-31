@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+#resume .row .card-header {
+  opacity: 0.75;
+}
+
 @media (min-width: 1199px) {
   .port-item {
     padding: 4em !important;
