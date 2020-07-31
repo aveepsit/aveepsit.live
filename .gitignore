@@ -1,50 +1,10 @@
-# ----------------------- #
-# Fontawesome Local Files #
-# ----------------------- #
+# Root Folder
+/*
 
-# FontAwesome CSS
-/css/fontawesome-all.css
+# Whitelist required files
+!.gitignore
+!README.md
 
-# FontAwesome webfonts
-/webfonts/fa-brands-400.eot
-/webfonts/fa-brands-400.svg
-/webfonts/fa-brands-400.ttf
-/webfonts/fa-brands-400.woff
-/webfonts/fa-brands-400.woff2
-/webfonts/fa-regular-400.eot
-/webfonts/fa-regular-400.svg
-/webfonts/fa-regular-400.ttf
-/webfonts/fa-regular-400.woff
-/webfonts/fa-regular-400.woff2
-/webfonts/fa-solid-900.eot
-/webfonts/fa-solid-900.svg
-/webfonts/fa-solid-900.ttf
-/webfonts/fa-solid-900.woff
-/webfonts/fa-solid-900.woff2
-
-# ----------------------- #
-#  BootStrap Local Files  #
-# ----------------------- #
-
-/js/bootstrap-min.js
-css/bootstrap-min.css
-
-# ----------------------- #
-#  Popper & JQuery Files  #
-# ----------------------- #
-
-/js/popper.min.js
-/js/jquery-3.5.1.min.js
-
-# ----------------------- #
-#  CK Editor Local Files  #
-# ----------------------- #
-
-/ckeditor/
-
-# ----------------------- #
-#  VS Code Setting Files  #
-# ----------------------- #
-
-/.vscode/
-
+# Whitelist root & screenshot folder
+!/root/
+!/screenshot/
