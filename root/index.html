@@ -497,64 +497,73 @@
               </div>
             </div>
             <div class="col-md-8">
-              <form class="card card-body h-100 p-4">
+              <div class="card card-body h-100 p-4">
                 <h3 class="mb-4 text-left">
                   Please fill out the form to get in touch
                 </h3>
-                <div class="input-group input-group-md mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-user"></i>
-                    </span>
+                <form id="contact-form">
+                  <div class="input-group input-group-md mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-user"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Full Name"
+                      name="full_name"
+                      required
+                    />
+                  </div>
+                  <div class="input-group input-group-md mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-envelope-open"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Your Email"
+                      name="_replyto"
+                      required
+                    />
+                  </div>
+                  <div class="input-group input-group-md mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-phone"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      placeholder="Phone Number"
+                      name="number"
+                    />
+                  </div>
+                  <div class="input-group input-group-md mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fas fa-pencil-alt"></i>
+                      </span>
+                    </div>
+                    <textarea
+                      class="form-control"
+                      placeholder="Message"
+                      rows="2"
+                      name="message"
+                      required
+                    ></textarea>
                   </div>
                   <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Full Name"
+                    type="submit"
+                    value="Submit"
+                    class="btn btn-outline-danger btn-block btn-lg"
                   />
-                </div>
-                <div class="input-group input-group-md mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-envelope-open"></i>
-                    </span>
-                  </div>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="Email"
-                  />
-                </div>
-                <div class="input-group input-group-md mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-phone"></i>
-                    </span>
-                  </div>
-                  <input
-                    type="tel"
-                    class="form-control"
-                    placeholder="Phone Number"
-                  />
-                </div>
-                <div class="input-group input-group-md mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">
-                      <i class="fas fa-pencil-alt"></i>
-                    </span>
-                  </div>
-                  <textarea
-                    class="form-control"
-                    placeholder="Message"
-                    rows="2"
-                  ></textarea>
-                </div>
-                <input
-                  type="submit"
-                  value="Submit"
-                  class="btn btn-outline-danger btn-block btn-lg"
-                />
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -605,6 +614,29 @@
       // sub-secition auto-close on click
       $(".port-item").click(function () {
         $(".collapse.show").collapse("hide");
+      });
+    </script>
+    <script>
+      $("#contact-form").submit(function (e) {
+        e.preventDefault(); // avoid to execute
+        var form = $(this);
+        var url = form.attr("action");
+        var submitBtn = form.find(":input:submit");
+        submitBtn.val("Submitting...").prop("disabled", true);
+        $.ajax({
+          type: "POST",
+          url: "https://formspree.io/mvowlkrb",
+          data: form.serialize(),
+          success: function (data) {
+            alert("Thanks for the message, I'll be in touch promptly.");
+            form.find(":input").prop("disabled", true).val("");
+            submitBtn.val("Submission Successful!");
+          },
+          error: function (data) {
+            alert("Drop a mail! Sorry the message could not be sent.");
+            submitBtn.val("Re-Submit").prop("disabled", false);
+          },
+        });
       });
     </script>
   </body>
