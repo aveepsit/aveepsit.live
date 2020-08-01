@@ -617,26 +617,34 @@
       });
     </script>
     <script>
-      $("#contact-form").submit(function (e) {
+      var sub_button = form.find(":input:submit");
+      $("#contact-form").on("submit", function (e) {
         e.preventDefault(); // avoid to execute
-        var form = $(this);
-        var url = form.attr("action");
-        var submitBtn = form.find(":input:submit");
-        submitBtn.val("Submitting...").prop("disabled", true);
+        var details = $(this).serialize();
         $.ajax({
-          type: "POST",
+          crossDomain: true,
+          method: "POST",
           url: "https://formspree.io/mvowlkrb",
-          data: form.serialize(),
-          success: function (data) {
-            alert("Thanks for the message, I'll be in touch promptly.");
-            form.find(":input").prop("disabled", true).val("");
-            submitBtn.val("Submission Successful!");
+          data: details,
+          dataType: "json",
+
+          beforeSend: function () {
+            sub_button.val("Sending Message...").prop("disabled", true);
           },
-          error: function (data) {
-            alert("Drop a mail! Sorry the message could not be sent.");
-            submitBtn.val("Re-Submit").prop("disabled", false);
+          success: function (data) {
+            alert("[INFO] Message was sent successfully!");
+            sub_button.val("Message Sent");
+            document.getElementById("contact-form").reset();
+            $("#contact-form").find(":input").prop("disabled", true);
+          },
+          error: function (err) {
+            alert(
+              "[Error] Please send a mail directly. Message could not be Sent!"
+            );
+            sub_button.val("Re-Send").prop("disabled", false);
           },
         });
+        sub_button.val("Submitting...").prop("disabled", true);
       });
     </script>
   </body>
